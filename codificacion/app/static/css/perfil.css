@@ -1,4 +1,3 @@
-
 :root {
   --background: 24 14% 12%;
   --card: 268 53% 23%;
@@ -144,4 +143,11 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-    
+
+/* Corregir texto oscuro en secciones específicas */
+h1, h2, h3, h4, h5, h6,
+p, a, span, li, label,
+.text-muted-custom, .text-muted {
+  color: hsl(var(--foreground)) !important;
+}
+
