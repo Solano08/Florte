@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afinidad - Estilo FLORTE</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FONT AWESOME (¡IMPORTANTE! AÑADIDO PARA QUE LOS ICONOS FUNCIONEN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tu hoja de estilos personalizada (reemplaza el contenido con el CSS de abajo) -->
+    <link rel="stylesheet" href="../static/css/afinidad.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN ESTILO FLORTE -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-people-arrows"></i>
+                FLORTE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                 <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-house"></i>Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-heart"></i>Afinidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-user-group"></i>Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-user-plus"></i>Amigos</a>
+                    </li>
+                    <li class="nav-item position-relative">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-comment"></i>Chats</a>
+                        <span class="notification-badge"></span>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                     <li class="nav-item">
+                        <a class="nav-link profile-icon" href="#"><i class="fa-solid fa-circle-user fs-4"></i></a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL DE AFINIDAD -->
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <!-- Columna que contiene la tarjeta y los botones -->
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                
+                <!-- TARJETA DE PERFIL -->
+                <div class="profile-card">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop" class="card-img-top" alt="Foto de perfil de Carlos">
+                    
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-1">Carlos, 31</h5>
+                        <p class="card-text my-3">"Apasionado por la tecnología, el buen cine y los videojuegos retro. ¿Conectamos?"</p>
+                        
+                        <div class="interests mt-4">
+                            <span class="badge">Tecnología</span>
+                            <span class="badge">Videojuegos</span>
+                            <span class="badge">Cine</span>
+                            <span class="badge">Programación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="action-buttons my-4">
+                    <button type="button" class="btn btn-circle btn-reject">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <button type="button" class="btn btn-circle btn-like">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- JS de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
