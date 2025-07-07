@@ -49,3 +49,37 @@ def inicio():
 def logout():
     session.clear()
     return render_template('inicio.html')
+
+from flask import Blueprint, request, jsonify
+import mysql.connector
+from db import get_connection  # Asegúrate de tener esto
+
+user_bp = Blueprint('user', __name__)
+
+@user_bp.route('/update_profile', methods=['POST'])
+def update_profile():
+    nombre = request.form['nombre']
+    programa = request.form['programa']
+    correo = request.form['correo']
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    # Aquí deberías usar el ID del usuario (esto es un ejemplo)
+    usuario_id = 1  # ¡Usa la sesión o lo que manejes para saber quién actualiza!
+
+    try:
+        sql = """
+        UPDATE usuarios
+        SET nombre = %s, programa = %s, correo = %s
+        WHERE id = %s
+        """
+        cursor.execute(sql, (nombre, programa, correo, usuario_id))
+        conn.commit()
+        return jsonify({'success': True})
+    except Exception as e:
+        print("Error:", e)
+        return jsonify({'success': False, 'error': str(e)})
+    finally:
+        cursor.close()
+        conn.close()
