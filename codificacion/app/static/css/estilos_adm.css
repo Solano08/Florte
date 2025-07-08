@@ -1,0 +1,32 @@
+body {
+  background-color: #181429;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.text-highlight {
+  color: #633fa4;
+}
+
+.bg-card {
+  background-color: #181429;
+  border: 1px solid #633fa4;
+  border-radius: 10px;
+}
+
+.btn-neon {
+  background-color: #ed52fc;
+  color: white;
+  border: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 8px #ed52fc;
+  background-color: #ed52fc;
+  color: white;
+}
+
+.bg-neon {
+  background-color: #ed52fc;
+  color: white;
+}
