@@ -1,0 +1,112 @@
+/* Tipografía general */
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background-color: #2c145c;
+  color: #ffffff;
+}
+
+/* Lista de usuarios (lado izquierdo) */
+.chat-list {
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: #181429;
+  border-right: 1px solid #633fa4;
+}
+
+.chat-list h5 {
+  color: #ed52fc;
+}
+
+.list-group-item {
+  background-color: #181429;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #633fa4;
+  cursor: pointer;
+}
+
+/* Contenedor de mensajes */
+.chat-box {
+  background-color: #181429;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  padding: 15px;
+}
+
+/* Cabecera del chat */
+.chat-header {
+  padding: 12px 15px;
+  background-color: #2c145c;
+  border-bottom: 1px solid #633fa4;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.chat-header img,
+.chat-list img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Burbuja de mensaje */
+.message {
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  max-width: 70%;
+  font-size: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Mensaje recibido (otro usuario) */
+.message.received {
+  background-color: #333048;
+  align-self: flex-start;
+  color: #ffffff;
+}
+
+/* Mensaje enviado (yo) */
+.message.sent {
+  background-color: #633fa4;
+  align-self: flex-end;
+  color: #ffffff;
+}
+
+/* Input de mensaje (parte inferior) */
+.chat-input {
+  background-color: #2c145c;
+  padding: 12px 15px;
+  border-top: 1px solid #633fa4;
+}
+
+.chat-input .form-control {
+  background-color: #181429;
+  color: #ffffff;
+  border: 1px solid #633fa4;
+}
+
+.chat-input .form-control::placeholder {
+  color: #cccccc;
+}
+
+.chat-input .btn-primary {
+  background-color: #ed52fc;
+  border: none;
+  color: #181429;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.chat-input .btn-primary:hover {
+  background-color: #ffffff;
+  color: #2c145c;
+}
