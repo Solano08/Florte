@@ -5,127 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florte Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/estilos_adm.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts (para que coincida con FLORTE) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Enlace a tu nuevo archivo CSS -->
+    <link rel="stylesheet" href="../static/css/estilos_adm.css">
 </head>
-<body class="bg-dark text-white">
+<body>
 
-  <div class="container-fluid py-4">
-    <h1 class="mb-4 text-center text-highlight">Panel de Administrador - Florte</h1>
+  <div class="container-fluid py-4 px-lg-5">
+    <h1 class="mb-5 text-center admin-title">Panel de Administrador - Florte</h1>
 
-    <div class="row">
-      <!-- Publicaciones -->
+    <div class="row g-4">
+      <!-- Columna de Publicaciones -->
       <div class="col-lg-8">
-        <div class="row g-4">
+        <div class="admin-card">
+          <h4 class="mb-4">Actividad Reciente</h4>
+          <div class="row g-4">
 
-          <!-- Publicación 1 -->
-          <div class="col-md-6">
-            <div class="card bg-card text-white p-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">@ana_sena</h5>
-                <span class="badge bg-neon">Activa</span>
-              </div>
-              <p class="card-text">“Me encanta el anime y la programación 😄🎮 ¿Alguien más?”</p>
-              <div class="d-flex gap-2 justify-content-end">
-                <button class="btn btn-outline-light btn-sm" onclick="abrirReporte('ana_sena')">Reportar</button>
-                <button class="btn btn-neon btn-sm" onclick="bloquearUsuario('ana_sena')">Bloquear</button>
-                <button class="btn btn-danger btn-sm" onclick="quitarPublicacion(this)">Quitar</button>
+            <!-- Publicación 1 -->
+            <div class="col-md-6">
+              <div class="post-card-admin">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="username">@ana_sena</span>
+                  <span class="badge rounded-pill badge-status">Activa</span>
+                </div>
+                <p class="post-text">“Me encanta el anime y la programación 😄🎮 ¿Alguien más?”</p>
+                <div class="d-flex gap-2 justify-content-end align-items-center">
+                  <button class="btn btn-admin-action">Reportar</button>
+                  <button class="btn btn-admin-action">Bloquear</button>
+                  <button class="btn btn-sm btn-admin-danger">Quitar</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Publicación 2 -->
-          <div class="col-md-6">
-            <div class="card bg-card text-white p-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">@juan_dev</h5>
-                <span class="badge bg-neon">Activa</span>
-              </div>
-              <p class="card-text">“Busco compañeros para armar grupo de videojuegos 🎮✨”</p>
-              <div class="d-flex gap-2 justify-content-end">
-                <button class="btn btn-outline-light btn-sm" onclick="abrirReporte('juan_dev')">Reportar</button>
-                <button class="btn btn-neon btn-sm" onclick="bloquearUsuario('juan_dev')">Bloquear</button>
-                <button class="btn btn-danger btn-sm" onclick="quitarPublicacion(this)">Quitar</button>
+            <!-- Publicación 2 -->
+            <div class="col-md-6">
+              <div class="post-card-admin">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="username">@juan_dev</span>
+                  <span class="badge rounded-pill badge-status">Activa</span>
+                </div>
+                <p class="post-text">“Busco compañeros para armar grupo de videojuegos 🎮✨”</p>
+                <div class="d-flex gap-2 justify-content-end align-items-center">
+                  <button class="btn btn-admin-action">Reportar</button>
+                  <button class="btn btn-admin-action">Bloquear</button>
+                  <button class="btn btn-sm btn-admin-danger">Quitar</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Publicación 3 -->
-          <div class="col-md-6">
-            <div class="card bg-card text-white p-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">@laura_art</h5>
-                <span class="badge bg-neon">Activa</span>
-              </div>
-              <p class="card-text">“¿A quién le gusta el arte digital? 🎨💻 ¡Compartamos!”</p>
-              <div class="d-flex gap-2 justify-content-end">
-                <button class="btn btn-outline-light btn-sm" onclick="abrirReporte('laura_art')">Reportar</button>
-                <button class="btn btn-neon btn-sm" onclick="bloquearUsuario('laura_art')">Bloquear</button>
-                <button class="btn btn-danger btn-sm" onclick="quitarPublicacion(this)">Quitar</button>
+            <!-- Publicación 3 -->
+            <div class="col-md-6">
+              <div class="post-card-admin">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="username">@laura_art</span>
+                  <span class="badge rounded-pill badge-status">Activa</span>
+                </div>
+                <p class="post-text">“¿A quién le gusta el arte digital? 🎨💻 ¡Compartamos!”</p>
+                <div class="d-flex gap-2 justify-content-end align-items-center">
+                  <button class="btn btn-admin-action">Reportar</button>
+                  <button class="btn btn-admin-action">Bloquear</button>
+                  <button class="btn btn-sm btn-admin-danger">Quitar</button>
+                </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
 
-      <!-- Reportes de Perfiles -->
+      <!-- Columna de Reportes de Perfiles -->
       <div class="col-lg-4">
-        <div class="card bg-card text-white p-3">
-          <h5 class="card-title text-highlight">Reportes de Perfiles</h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center">
-              @usuario_toxico
-              <div>
-                <button class="btn btn-outline-light btn-sm me-2" onclick="verDetalle('usuario_toxico')">Ver</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarReporte(this)">Eliminar</button>
+        <div class="admin-card">
+          <h4 class="mb-4">Reportes de Perfiles</h4>
+          <ul class="list-group list-group-flush reports-list">
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-person-exclamation me-2"></i> @usuario_toxico</span>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-admin-primary">Ver</button>
+                <button class="btn btn-sm btn-admin-danger">Eliminar</button>
               </div>
             </li>
-            <li class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center">
-              @spam_account
-              <div>
-                <button class="btn btn-outline-light btn-sm me-2" onclick="verDetalle('spam_account')">Ver</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarReporte(this)">Eliminar</button>
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-person-exclamation me-2"></i> @spam_account</span>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-admin-primary">Ver</button>
+                <button class="btn btn-sm btn-admin-danger">Eliminar</button>
               </div>
             </li>
-            <li class="list-group-item bg-dark text-white d-flex justify-content-between align-items-center">
-              @usuario_falso
-              <div>
-                <button class="btn btn-outline-light btn-sm me-2" onclick="verDetalle('usuario_falso')">Ver</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarReporte(this)">Eliminar</button>
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-person-exclamation me-2"></i> @usuario_falso</span>
+              <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-admin-primary">Ver</button>
+                <button class="btn btn-sm btn-admin-danger">Eliminar</button>
               </div>
             </li>
+
           </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal de Reporte -->
-  <div class="modal fade" id="modalReporte" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content bg-card text-white">
-        <div class="modal-header">
-          <h5 class="modal-title">Reportar usuario</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <p>Estás reportando a: <strong id="usuarioReporte"></strong></p>
-          <textarea class="form-control bg-dark text-white" placeholder="Motivo del reporte..." rows="4"></textarea>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button class="btn btn-neon">Enviar Reporte</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/funcion_rol.js">
-
-  </script>
-    
 </body>
 </html>
