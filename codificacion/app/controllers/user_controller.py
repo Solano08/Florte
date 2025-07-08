@@ -8,6 +8,7 @@ from app.models.user_model import get_user_by_email, insert_user
 user_bp = Blueprint('user_bp', __name__)
 bcrypt = Bcrypt()
 
+
 @user_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -18,11 +19,12 @@ def login():
         user = get_user_by_email(connection, email)
         if user and bcrypt.check_password_hash(user['contraseña'], password):
             session['user_id'] = user['id']
-            return redirect(url_for('user_bp.inicio'))
+            return redirect(url_for('user_bp.feed'))
         else:
             return "Login Failed"
 
     return render_template('inicio_sesion.html')
+
 
 @user_bp.route('/register', methods=['GET', 'POST'])
 def register():
@@ -37,24 +39,51 @@ def register():
         return redirect(url_for('user_bp.login'))
     return render_template('registro.html')
 
-@user_bp.route('/inicio')
-def inicio():
+
+@user_bp.route('/feed')
+def feed():
     user_id = session.get('user_id')
     if not user_id:
         return redirect(url_for('user_bp.login'))
-    return render_template('inicio.html')
+    return render_template('feed.html')
+
+
+@user_bp.route('/perfil')
+def perfil():
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('user_bp.login'))
+    return render_template('perfil.html')
+
+
+@user_bp.route('/explorar')
+def explorar():
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('user_bp.login'))
+    return render_template('explorar.html')
+
+
+@user_bp.route('/afinidad')
+def afinidad():
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('user_bp.login'))
+    return render_template('afinidad.html')
+
+
+@user_bp.route('/mensajes')
+def mensajes():
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('user_bp.login'))
+    return render_template('mensajes.html')
 
 
 @user_bp.route('/logout')
 def logout():
     session.clear()
-    return render_template('inicio.html')
-
-from flask import Blueprint, request, jsonify
-import mysql.connector
-from db import get_connection  # Asegúrate de tener esto
-
-user_bp = Blueprint('user', __name__)
+    return render_template('feed.html')
 
 @user_bp.route('/update_profile', methods=['POST'])
 def update_profile():
