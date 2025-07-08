@@ -114,3 +114,120 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - Florte</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos Personalizados (DEBE IR DESPUÉS DE BOOTSTRAP) -->
+    <link rel="stylesheet" href="../static/css/perfil.css">
+
+    <!-- Google Fonts (Opcional, para un look más cercano) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-bg">
+        <!-- ======================= BARRA DE NAVEGACIÓN ======================= -->
+        <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand fw-bold" href="#">
+                    <i class="bi bi-flower1 me-2"></i>FLORTE
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-house-door me-2"></i>Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person me-2"></i>Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-people me-2"></i>Grupos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-plus me-2"></i>Amigos</a></li>
+                    </ul>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item position-relative"><a class="nav-link" href="#"><i class="bi bi-chat-dots me-2"></i>Chats Privados<span class="notification-badge badge rounded-pill"></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-circle fs-4"></i></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-box-arrow-right me-2"></i>Salir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================= CONTENIDO PRINCIPAL ======================= -->
+        <main class="container py-4">
+            
+            <!-- --- TARJETA DE PERFIL --- -->
+            <section class="content-card p-4 mb-4">
+                <div class="d-flex flex-wrap align-items-start">
+                    <div class="d-flex align-items-center me-auto mb-3 mb-md-0">
+                        <img src="https://i.imgur.com/uCrotIq.png" alt="Foto de perfil" class="profile-pic me-4">
+                        <div>
+                            <h2 class="mb-0 fw-bold">pepe</h2>
+                            <p class="text-muted-custom mb-1">ANALISIS Y DESARROLLO DE SOFWARE</p>
+                            <p class="text-muted-custom mb-1">Colombia</p>
+                            <p class="text-muted-custom small">dfuquene31@gmail.com</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-custom-outline"><i class="bi bi-pencil-square me-2"></i>Editar Perfil</a>
+                </div>
+                <hr class="custom-hr">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h5 class="fw-bold mb-2">Acerca de mí</h5>
+                        <p>pepep es un pepinillo hablante hablando</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-2">Enlaces</h5>
+                        <a href="#" class="btn btn-link-dark me-2"><i class="bi bi-github me-2"></i>GitHub</a>
+                        <a href="#" class="btn btn-link-dark"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
+                    </div>
+                </div>
+                <hr class="custom-hr">
+                <div class="d-flex flex-wrap justify-content-between text-muted-custom">
+                    <span><i class="bi bi-geo-alt-fill me-2"></i>Colombia</span>
+                    <span><i class="bi bi-journal-bookmark-fill me-2"></i>ANALISIS Y DESARROLLO DE SOFWARE</span>
+                </div>
+            </section>
+
+            <!-- --- TARJETA DE AMIGOS --- -->
+            <section class="content-card p-4 mb-4">
+                <h4 class="fw-bold mb-3 d-flex align-items-center"><i class="bi bi-people-fill me-2"></i>Mis Amigos (1)</h4>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="friend-card p-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://i.imgur.com/8Qjw3sJ.png" alt="Foto de amigo" class="friend-pic me-3">
+                                <span class="fw-bold">carlos</span>
+                            </div>
+                            <a href="#" class="btn btn-custom-outline w-100">Ver Perfil</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- --- TARJETA DE PROYECTOS --- -->
+            <section class="content-card p-4 mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold mb-0">Mis Proyectos</h4>
+                    <a href="#" class="btn btn-custom-primary"><i class="bi bi-plus-lg me-2"></i>Agregar Proyecto</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
