@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil de Usuario - Florte</title>
+
+  <!-- Bootstrap y estilos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/perfil.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="main-bg">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand fw-bold" href="#"><i class="bi bi-flower1 me-2"></i>FLORTE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="../templates/feed.html"><i class="bi bi-house-door me-2"></i>Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../templates/Perfil.html"><i class="bi bi-person me-2"></i>Perfil</a></li>
+            <li class="nav-item"><a class="nav-link" href="../templates/explorar.html"><i class="bi bi-people me-2"></i>Grupos</a></li>
+            <li class="nav-item"><a class="nav-link" href="../templates/afinidad.html"></i>Matches</a></li>
+          </ul>
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item"><a class="nav-link" href="../templates/mensajes.html"></i>Chats Privados</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-circle fs-4"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('user_bp.feed') }}"><i class="bi bi-box-arrow-right me-2"></i>Salir</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container py-4">
+      <!-- TARJETA DE PERFIL -->
+      <section class="content-card p-4 mb-4">
+        <div class="d-flex flex-wrap align-items-start">
+          <div class="d-flex align-items-center me-auto mb-3 mb-md-0">
+            <img src="../static/img/mcpato.jpg" alt="Foto de perfil" class="profile-pic me-4">
+            <div>
+              <h2 class="mb-0 fw-bold">{{ user.nombre }}</h2>
+              <p class="text-muted-custom mb-1">{{ user.programa }}</p>
+              <p class="text-muted-custom mb-1">{{ user.ciudad }}</p>
+              <p class="text-muted-custom small">{{ user.correo }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTÓN MOSTRAR FORMULARIO -->
+        <a class="btn btn-custom-outline mb-3" data-bs-toggle="collapse" href="#formEditarPerfil" role="button" aria-expanded="false" aria-controls="formEditarPerfil">
+          <i class="bi bi-pencil-square me-2"></i>Editar Perfil
+        </a>
+
+        <!-- FORMULARIO EDICIÓN DE PERFIL -->
+        <div class="collapse" id="formEditarPerfil">
+          <form class="content-card p-4 bg-light border rounded" method="POST" action="{{ url_for('user_bp.actualizar_perfil') }}">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre" value="{{ user.nombre }}">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="programa" class="form-label">Programa</label>
+                <input type="text" name="programa" class="form-control" id="programa" value="{{ user.programa }}">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <input type="text" name="ciudad" class="form-control" id="ciudad" value="{{ user.ciudad }}">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="email" name="correo" class="form-control" id="correo" value="{{ user.correo }}">
+              </div>
+              <div class="col-12 mb-3">
+                <label for="descripcion" class="form-label">Acerca de mí</label>
+                <textarea name="descripcion" class="form-control" id="descripcion" rows="3">{{ user.descripcion }}</textarea>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <a href="{{ url_for('user_bp.perfil') }}" class="btn btn-secondary me-2">Cancelar</a>
+              <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </form>
+        </div>
+
+        <hr class="custom-hr">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <h5 class="fw-bold">Acerca de mí</h5>
+            <p>{{ user.descripcion }}</p>
+          </div>
+          <div class="col-md-6">
+            <h5 class="fw-bold">Enlaces</h5>
+            <a href="https://github.com/Solano08/Florte/tree/main" class="btn btn-link-dark me-2"><i class="bi bi-github me-2"></i>GitHub</a>
+            <a href="https://www.linkedin.com/feed/" class="btn btn-link-dark"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
+          </div>
+        </div>
+        <hr class="custom-hr">
+        <div class="d-flex flex-wrap justify-content-between text-muted-custom">
+          <span><i class="bi bi-geo-alt-fill me-2"></i>{{ user.ciudad }}</span>
+          <span><i class="bi bi-journal-bookmark-fill me-2"></i>{{ user.programa }}</span>
+        </div>
+      </section>
+
+      <!-- AMIGOS -->
+      <section class="content-card p-4 mb-4">
+        <h4 class="fw-bold mb-3"><i class="bi bi-people-fill me-2"></i>Mis Amigos (1)</h4>
+        <div class="row">
+          <div class="col-md-4 col-lg-3">
+            <div class="friend-card p-3">
+              <div class="d-flex align-items-center mb-3">
+                <img src="../static/img/mordecai.jpeg" alt="Foto de amigo" class="friend-pic me-3">
+                <span class="fw-bold">Carlos</span>
+              </div>
+              <a href="#" class="btn btn-custom-outline w-100">Ver Perfil</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS -->
+      <section class="content-card p-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center">
+          <h4 class="fw-bold mb-0">Mis Proyectos</h4>
+          <a href="#" class="btn btn-custom-primary"><i class="bi bi-plus-lg me-2"></i>Agregar Proyecto</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
