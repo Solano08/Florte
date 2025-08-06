@@ -1,0 +1,36 @@
+## Florte
+![alt text](banner.jpg.jpg) 
+
+# Florte
+
+Florte es una red social diseñada para conectar personas, compartir ideas y fomentar comunidades. Este proyecto busca ofrecer una plataforma moderna, segura y fácil de usar.
+
+## Características principales
+
+- Publicación de mensajes, imágenes y enlaces
+- Sistema de comentarios y reacciones
+- Perfiles de usuario personalizables
+- Búsqueda y seguimiento de otros usuarios
+- Notificaciones en tiempo real
+
+## Instalación
+
+```bash
+git clone https://github.com/tu-usuario/florte.git
+cd florte
+# Instala las dependencias según el stack tecnológico usado
+```
+
+## Uso
+
+1. Configura las variables de entorno necesarias.
+2. Ejecuta el servidor de desarrollo.
+3. Accede a la aplicación desde tu navegador.
+
+## Contribución
+
+Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request.
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT.
