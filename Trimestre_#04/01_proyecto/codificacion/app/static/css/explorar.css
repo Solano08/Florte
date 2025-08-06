@@ -1,0 +1,161 @@
+/* ================================================= */
+/*          VARIABLES DE DISEÑO (PALETA)             */
+/*      Usamos la misma paleta para consistencia.    */
+/* ================================================= */
+:root {
+    --bg-gradient-start: #1a122e;
+    --bg-gradient-end: #432874;
+    --card-bg-color: rgba(26, 18, 46, 0.6);
+    --primary-accent-color: #00f5c3;
+    --primary-accent-hover: #00d4a8;
+    --secondary-accent-color: rgba(106, 90, 205, 0.4);
+    --main-text-color: #e0e0e0;
+    --muted-text-color: #a0a0b0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --card-radius: 16px;
+    --button-radius: 10px;
+}
+
+/* ================================================= */
+/*          ESTILOS GLOBALES Y ANIMACIONES           */
+/* ================================================= */
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    background-color: var(--bg-gradient-start);
+    background-image: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed;
+    color: var(--main-text-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ================================================= */
+/*          BARRA DE NAVEGACIÓN (REUTILIZADA)        */
+/* ================================================= */
+.navbar-custom {
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+}
+.navbar-custom .navbar-brand {
+    color: white !important;
+    font-weight: 700;
+}
+.navbar-custom .nav-link {
+    color: var(--muted-text-color);
+    font-weight: 500;
+    border-radius: var(--button-radius);
+    margin: 0 0.25rem;
+}
+.navbar-custom .nav-link:hover {
+    color: white;
+}
+.navbar-custom .nav-link.active {
+    color: var(--primary-accent-color) !important;
+    font-weight: 600;
+}
+
+/* Estilo para el avatar de perfil en la navbar */
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    background-color: var(--secondary-accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+    border: 1px solid var(--border-color);
+}
+
+/* ================================================= */
+/*             CONTENIDO - EXPLORAR COMUNIDADES      */
+/* ================================================= */
+.container {
+    animation: fadeInSlideUp 0.8s ease-in-out forwards;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--main-text-color);
+    margin-bottom: 1.5rem;
+}
+.page-title i {
+    color: var(--primary-accent-color);
+}
+
+/* Botón de Crear Comunidad */
+.btn-create-group {
+    background-color: var(--primary-accent-color);
+    color: var(--bg-gradient-start);
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.btn-create-group:hover {
+    background-color: var(--primary-accent-hover);
+    color: var(--bg-gradient-start);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 20px var(--primary-accent-color);
+}
+
+/* Tarjeta de Comunidad (Glassmorphism) */
+.card {
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    color: var(--main-text-color);
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    border-color: rgba(0, 245, 195, 0.3);
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: var(--main-text-color);
+    font-weight: 600;
+}
+.card-text {
+    color: var(--muted-text-color);
+    font-size: 0.9rem;
+}
+
+/* Botón para Unirse a una comunidad */
+.btn-join {
+    background-color: transparent;
+    color: var(--muted-text-color);
+    border: 2px solid var(--border-color);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 8px 16px;
+}
+.btn-join:hover {
+    background-color: var(--primary-accent-color);
+    border-color: var(--primary-accent-color);
+    color: var(--bg-gradient-start);
+}

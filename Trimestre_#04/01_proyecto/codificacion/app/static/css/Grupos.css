@@ -1,0 +1,94 @@
+
+:root {
+  --background: 24 14% 12%;
+  --card: 268 53% 23%;
+  --border: 268 53% 35%;
+  --primary: 276 67% 66%;
+  --foreground: 0 0% 100%;
+  --muted: 276 20% 30%;
+  --muted-foreground: 0 0% 90%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================== TARJETAS DE GRUPO ================== */
+.group-card {
+  background-color: hsl(var(--card));
+  border-radius: 1rem;
+  border: 1px solid hsl(var(--border));
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.group-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.group-card-body {
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.settings-icon {
+  color: hsl(var(--muted-foreground));
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.settings-icon:hover {
+  color: hsl(var(--foreground));
+}
+
+.group-card-image {
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.group-card-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top,
+    hsl(var(--background)) 5%,
+    hsl(var(--background) / 0.8) 40%,
+    hsl(var(--background) / 0.2) 100%);
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* ================== BOTÓN PERSONALIZADO ================== */
+.btn-custom-green {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--background));
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-custom-green:hover {
+  background-color: hsl(var(--primary) / 0.8);
+  color: hsl(var(--background));
+}
+
+.text-muted-custom {
+  color: hsl(var(--muted-foreground)) !important;
+}
+    
