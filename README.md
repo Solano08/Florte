@@ -3,7 +3,7 @@
 
 # Florte
 
-Florte es una red social diseñada para conectar personas, compartir ideas y fomentar comunidades. Este proyecto busca ofrecer una plataforma moderna, segura y fácil de usar.
+Florte es una red social diseñada para conectar personas del sena especialmente del complejo sur medioante el sistema del gps el cual te mostrara aprendices de ese entorno , comunidades de tecnologia , electricidad y demas tecnologos y tecnicos que se realizan en el complejo sur tambien ayuda a  compartir ideas entre ellos mismos , Este proyecto busca ofrecer una plataforma moderna, segura y fácil de usar.
 
 ## Características principales
 
