@@ -7,10 +7,10 @@ Florte es una red social diseñada para conectar personas del sena especialmente
 
 ## Características principales
 
-- Publicación de mensajes, imágenes y enlaces
+- Publicación de mensajes, imágenes , comunidades
 - Sistema de comentarios y reacciones
-- Perfiles de usuario personalizables
-- Búsqueda y seguimiento de otros usuarios
+- Perfiles de usuario personalizables y adjuntables para tus proyectos
+- Búsqueda y seguimiento de otros usuarios por medio de geolocalizacion 
 - Notificaciones en tiempo real
 
 ## Instalación
@@ -29,8 +29,6 @@ cd florte
 
 ## Contribución
 
-Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull request.
+Las contribuciones son bienvenidas por parte de los integrantes de Lyar . Por favor, abre un issue o envía un pull request.
 
-## Licencia
 
-Este proyecto está bajo la licencia MIT.
