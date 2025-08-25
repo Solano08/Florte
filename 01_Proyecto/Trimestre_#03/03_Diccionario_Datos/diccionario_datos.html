@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Diccionario de Datos - Red Social</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        h2 { margin-top: 30px; color: #34495e; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>Diccionario de Datos - Red Social</h1>
+<h2>Tabla: usuarios</h2>
+<p>Almacena la información básica de los usuarios registrados en la plataforma.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del usuario.</td></tr>
+<tr><td>nombre</td><td>VARCHAR(50)</td><td></td><td>Nombre del usuario.</td></tr>
+<tr><td>correo</td><td>VARCHAR(50)</td><td></td><td>Correo electrónico del usuario.</td></tr>
+<tr><td>contraseña</td><td>VARCHAR(50)</td><td></td><td>Contraseña encriptada del usuario.</td></tr>
+</table>
+<h2>Tabla: perfiles</h2>
+<p>Contiene información adicional y detallada de cada usuario (perfil).</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del perfil.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al usuario dueño del perfil.</td></tr>
+<tr><td>nombre_completo</td><td>VARCHAR(100)</td><td></td><td>Nombre completo del usuario.</td></tr>
+<tr><td>avatar_url</td><td>VARCHAR(255)</td><td></td><td>URL de la imagen de perfil.</td></tr>
+<tr><td>bio</td><td>TEXT</td><td></td><td>Biografía breve del usuario.</td></tr>
+<tr><td>github_url</td><td>VARCHAR(255)</td><td></td><td>URL al perfil de GitHub.</td></tr>
+<tr><td>linkedin_url</td><td>VARCHAR(255)</td><td></td><td>URL al perfil de LinkedIn.</td></tr>
+<tr><td>ubicacion</td><td>VARCHAR(100)</td><td></td><td>Ubicación del usuario.</td></tr>
+<tr><td>ocupacion</td><td>VARCHAR(100)</td><td></td><td>Ocupación del usuario.</td></tr>
+</table>
+<h2>Tabla: grupos</h2>
+<p>Define los grupos creados por los usuarios.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del grupo.</td></tr>
+<tr><td>nombre</td><td>VARCHAR(100)</td><td></td><td>Nombre del grupo.</td></tr>
+<tr><td>descripcion</td><td>TEXT</td><td></td><td>Descripción del grupo.</td></tr>
+<tr><td>imagen_fondo</td><td>VARCHAR(255)</td><td></td><td>Imagen de fondo del grupo.</td></tr>
+<tr><td>id_propietario</td><td>INT</td><td>FK</td><td>Referencia al perfil creador del grupo.</td></tr>
+</table>
+<h2>Tabla: miembros_grupo</h2>
+<p>Relaciona usuarios con grupos y define su rol dentro de cada grupo.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único de la membresía.</td></tr>
+<tr><td>id_grupo</td><td>INT</td><td>FK</td><td>Referencia al grupo.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al perfil del usuario miembro.</td></tr>
+<tr><td>rol</td><td>VARCHAR(10)</td><td></td><td>Rol del miembro en el grupo (admin, member).</td></tr>
+</table>
+<h2>Tabla: canales</h2>
+<p>Canales de comunicación dentro de un grupo (texto o voz).</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del canal.</td></tr>
+<tr><td>id_grupo</td><td>INT</td><td>FK</td><td>Referencia al grupo al que pertenece el canal.</td></tr>
+<tr><td>nombre</td><td>VARCHAR(50)</td><td></td><td>Nombre del canal.</td></tr>
+<tr><td>tipo</td><td>VARCHAR(10)</td><td></td><td>Tipo de canal (text, voice).</td></tr>
+<tr><td>descripcion</td><td>TEXT</td><td></td><td>Descripción del canal.</td></tr>
+<tr><td>creado_por</td><td>INT</td><td>FK</td><td>Referencia al perfil que creó el canal.</td></tr>
+</table>
+<h2>Tabla: mensajes</h2>
+<p>Mensajes enviados dentro de los canales de un grupo.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del mensaje.</td></tr>
+<tr><td>id_canal</td><td>INT</td><td>FK</td><td>Referencia al canal donde se envió el mensaje.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al perfil del emisor.</td></tr>
+<tr><td>contenido</td><td>TEXT</td><td></td><td>Contenido del mensaje.</td></tr>
+<tr><td>media_url</td><td>VARCHAR(255)</td><td></td><td>URL del archivo multimedia adjunto.</td></tr>
+<tr><td>media_tipo</td><td>VARCHAR(10)</td><td></td><td>Tipo de media (image, audio, video).</td></tr>
+</table>
+<h2>Tabla: publicaciones</h2>
+<p>Publicaciones realizadas por los usuarios en el muro.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único de la publicación.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al usuario autor de la publicación.</td></tr>
+<tr><td>contenido</td><td>TEXT</td><td></td><td>Contenido del post.</td></tr>
+<tr><td>media_url</td><td>VARCHAR(255)</td><td></td><td>URL del archivo multimedia adjunto.</td></tr>
+<tr><td>media_tipo</td><td>VARCHAR(20)</td><td></td><td>Tipo de media (image, video, etc.).</td></tr>
+</table>
+<h2>Tabla: comentarios</h2>
+<p>Comentarios realizados por los usuarios en las publicaciones.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del comentario.</td></tr>
+<tr><td>id_publicacion</td><td>INT</td><td>FK</td><td>Referencia a la publicación comentada.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al usuario autor del comentario.</td></tr>
+<tr><td>contenido</td><td>TEXT</td><td></td><td>Contenido del comentario.</td></tr>
+</table>
+<h2>Tabla: reacciones</h2>
+<p>Reacciones de los usuarios a publicaciones mediante emojis.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único de la reacción.</td></tr>
+<tr><td>id_publicacion</td><td>INT</td><td>FK</td><td>Referencia a la publicación.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al usuario que reaccionó.</td></tr>
+<tr><td>emoji</td><td>VARCHAR(10)</td><td></td><td>Emoji utilizado en la reacción.</td></tr>
+</table>
+<h2>Tabla: solicitudes_amistad</h2>
+<p>Gestión de las solicitudes de amistad entre usuarios.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único de la solicitud.</td></tr>
+<tr><td>id_emisor</td><td>INT</td><td>FK</td><td>Referencia al usuario que envía la solicitud.</td></tr>
+<tr><td>id_receptor</td><td>INT</td><td>FK</td><td>Referencia al usuario que recibe la solicitud.</td></tr>
+<tr><td>estado</td><td>VARCHAR(10)</td><td></td><td>Estado de la solicitud (pending, accepted, rejected).</td></tr>
+</table>
+<h2>Tabla: amistades</h2>
+<p>Almacena las relaciones de amistad confirmadas entre usuarios.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único de la amistad.</td></tr>
+<tr><td>id_usuario1</td><td>INT</td><td>FK</td><td>Referencia al primer usuario en la relación de amistad.</td></tr>
+<tr><td>id_usuario2</td><td>INT</td><td>FK</td><td>Referencia al segundo usuario en la relación de amistad.</td></tr>
+</table>
+<h2>Tabla: chats_privados</h2>
+<p>Registra los chats privados entre dos usuarios.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del chat privado.</td></tr>
+<tr><td>id_usuario1</td><td>INT</td><td>FK</td><td>Referencia al primer usuario.</td></tr>
+<tr><td>id_usuario2</td><td>INT</td><td>FK</td><td>Referencia al segundo usuario.</td></tr>
+</table>
+<h2>Tabla: mensajes_privados</h2>
+<p>Mensajes enviados dentro de un chat privado.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del mensaje privado.</td></tr>
+<tr><td>id_chat</td><td>INT</td><td>FK</td><td>Referencia al chat privado.</td></tr>
+<tr><td>id_emisor</td><td>INT</td><td>FK</td><td>Referencia al usuario emisor.</td></tr>
+<tr><td>contenido</td><td>TEXT</td><td></td><td>Contenido del mensaje privado.</td></tr>
+<tr><td>media_url</td><td>VARCHAR(255)</td><td></td><td>URL del archivo multimedia adjunto.</td></tr>
+<tr><td>media_tipo</td><td>VARCHAR(20)</td><td></td><td>Tipo de media (image, video, etc.).</td></tr>
+</table>
+<h2>Tabla: proyectos</h2>
+<p>Proyectos personales o profesionales compartidos por los usuarios.</p>
+<table>
+    <tr><th>Columna</th><th>Tipo de Dato</th><th>Clave</th><th>Descripción</th></tr><tr><td>id</td><td>INT</td><td>PK</td><td>Identificador único del proyecto.</td></tr>
+<tr><td>id_usuario</td><td>INT</td><td>FK</td><td>Referencia al perfil del autor del proyecto.</td></tr>
+<tr><td>titulo</td><td>VARCHAR(100)</td><td></td><td>Título del proyecto.</td></tr>
+<tr><td>descripcion</td><td>TEXT</td><td></td><td>Descripción del proyecto.</td></tr>
+<tr><td>imagen_url</td><td>VARCHAR(255)</td><td></td><td>Imagen asociada al proyecto.</td></tr>
+<tr><td>proyecto_url</td><td>VARCHAR(255)</td><td></td><td>URL al proyecto desplegado.</td></tr>
+<tr><td>github_url</td><td>VARCHAR(255)</td><td></td><td>Repositorio en GitHub del proyecto.</td></tr>
+<tr><td>tecnologias</td><td>TEXT</td><td></td><td>Tecnologías utilizadas en el proyecto.</td></tr>
+</table>
+</body></html>
