@@ -1,0 +1,180 @@
+/* ================================================= */
+/*          VARIABLES DE DISEÑO (PALETA)             */
+/* ================================================= */
+:root {
+    --bg-gradient-start: #1a122e;
+    --bg-gradient-end: #432874;
+    --card-bg-color: rgba(26, 18, 46, 0.6);
+    --primary-accent-color: #00f5c3;
+    --primary-accent-hover: #00d4a8;
+    --secondary-accent-color: rgba(106, 90, 205, 0.4);
+    --main-text-color: #e0e0e0;
+    --muted-text-color: #a0a0b0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --card-radius: 16px;
+    --button-radius: 10px;
+}
+
+/* ================================================= */
+/*          ESTILOS GLOBALES Y DE LAYOUT             */
+/* ================================================= */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-gradient-start);
+    background-image: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    background-attachment: fixed;
+    color: var(--main-text-color);
+    overflow: hidden; /* Evita el scroll en la página principal */
+}
+
+.row.vh-100 {
+    --bs-gutter-x: 0; /* Eliminamos el espacio entre columnas de Bootstrap */
+}
+
+/* --- ESTILOS PARA LA LISTA DE CHATS (IZQUIERDA) --- */
+.chat-list {
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 1px solid var(--border-color) !important;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.chat-list h5 {
+    font-weight: 600;
+    padding: 1.5rem !important;
+    border-bottom: 1px solid var(--border-color);
+}
+.chat-list .list-group {
+    overflow-y: auto; /* Scroll para la lista si es muy larga */
+}
+
+.list-group-item {
+    background-color: transparent;
+    color: var(--muted-text-color);
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--main-text-color);
+}
+.list-group-item.active { /* Puedes añadir esta clase con JS al chat seleccionado */
+    background-color: var(--secondary-accent-color);
+    color: white;
+    font-weight: 600;
+}
+
+.list-group-item img {
+    border: 2px solid var(--border-color);
+}
+
+
+/* --- ESTILOS PARA LA VENTANA DEL CHAT (DERECHA) --- */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+}
+.chat-header img {
+    border-radius: 50%;
+    border: 2px solid var(--primary-accent-color);
+}
+.chat-header strong {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.chat-box {
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espacio entre mensajes */
+}
+
+.message {
+    padding: 0.75rem 1.25rem;
+    border-radius: 20px;
+    max-width: 70%;
+    line-height: 1.4;
+}
+
+.message.received {
+    background-color: rgba(0,0,0,0.2);
+    border-bottom-left-radius: 5px;
+    align-self: flex-start;
+    color: var(--main-text-color);
+}
+
+.message.sent {
+    background-color: var(--primary-accent-color);
+    border-bottom-right-radius: 5px;
+    align-self: flex-end;
+    color: var(--bg-gradient-start); /* Texto oscuro para contraste */
+    font-weight: 500;
+}
+
+.chat-input {
+    padding: 1rem 1.5rem;
+    background-color: var(--card-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid var(--border-color);
+}
+
+.chat-input .form-control {
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color);
+    color: var(--main-text-color);
+    border-radius: var(--button-radius);
+}
+.chat-input .form-control:focus {
+    background-color: rgba(0,0,0,0.3);
+    border-color: var(--primary-accent-color);
+    box-shadow: 0 0 10px rgba(0, 245, 195, 0.3);
+    color: var(--main-text-color);
+}
+.chat-input .form-control::placeholder {
+    color: var(--muted-text-color);
+}
+
+.chat-input .btn-primary {
+    background-color: var(--primary-accent-color);
+    border-color: var(--primary-accent-color);
+    color: var(--bg-gradient-start);
+    font-weight: 600;
+    border-radius: var(--button-radius);
+    transition: all 0.3s ease;
+}
+.chat-input .btn-primary:hover {
+    background-color: var(--primary-accent-hover);
+    border-color: var(--primary-accent-hover);
+    transform: scale(1.05);
+}
+
+/* --- ESTILO SUTIL PARA LA BARRA DE SCROLL --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
