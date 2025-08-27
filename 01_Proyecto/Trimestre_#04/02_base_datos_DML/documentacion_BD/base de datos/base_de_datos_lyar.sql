@@ -5,7 +5,7 @@ CREATE TABLE usuarios (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50),
   correo VARCHAR(50),
-  contraseña VARBINARY(64) -- Guardar hash SHA2-256
+  contraseña VARCHAR(50)
 );
 
 CREATE TABLE perfiles (
@@ -135,19 +135,18 @@ CREATE TABLE proyectos (
   tecnologias TEXT,
   FOREIGN KEY (id_usuario) REFERENCES perfiles(id)
 );
-
--- Usuarios (contraseña ahora con SHA2)
+-- Usuarios
 INSERT INTO usuarios (nombre, correo, contraseña) VALUES
-('Camila Torres', 'camila@example.com', SHA2('clave123', 256)),
-('Mateo Ramírez', 'mateo@example.com', SHA2('clave123', 256)),
-('Valentina Gómez', 'valentina@example.com', SHA2('clave123', 256)),
-('Juan López', 'juan@example.com', SHA2('clave123', 256)),
-('Sofía Rojas', 'sofia@example.com', SHA2('clave123', 256)),
-('Andrés Pérez', 'andres@example.com', SHA2('clave123', 256)),
-('Isabella Martínez', 'isabella@example.com', SHA2('clave123', 256)),
-('Santiago Herrera', 'santiago@example.com', SHA2('clave123', 256)),
-('Laura Vargas', 'laura@example.com', SHA2('clave123', 256)),
-('Carlos Nieto', 'carlos@example.com', SHA2('clave123', 256));
+('Camila Torres', 'camila@example.com', 'clave123'),
+('Mateo Ramírez', 'mateo@example.com', 'clave123'),
+('Valentina Gómez', 'valentina@example.com', 'clave123'),
+('Juan López', 'juan@example.com', 'clave123'),
+('Sofía Rojas', 'sofia@example.com', 'clave123'),
+('Andrés Pérez', 'andres@example.com', 'clave123'),
+('Isabella Martínez', 'isabella@example.com', 'clave123'),
+('Santiago Herrera', 'santiago@example.com', 'clave123'),
+('Laura Vargas', 'laura@example.com', 'clave123'),
+('Carlos Nieto', 'carlos@example.com', 'clave123');
 
 -- Perfiles
 INSERT INTO perfiles (id_usuario, nombre_completo, avatar_url, bio, github_url, linkedin_url, ubicacion, ocupacion) VALUES
@@ -278,3 +277,80 @@ INSERT INTO amistades (id_usuario1, id_usuario2) VALUES
 (8, 9),
 (9, 10),
 (10, 1);
+
+-- mostrar usuarios registrados 
+SELECT * FROM usuarios;
+
+-- Listado de los nombres de los grupos y su propietario
+SELECT g.nombre, p.nombre_completo AS propietario
+FROM grupos g
+JOIN perfiles p ON g.id_propietario = p.id_usuario;
+
+-- Ver los mensajes del canal 'general
+SELECT m.contenido, u.nombre AS autor
+FROM mensajes m
+JOIN usuarios u ON m.id_usuario = u.id_usuario
+JOIN canales c ON m.id_canal = c.id_canal
+WHERE c.nombre = 'general';
+
+-- Obtener todas las publicaciones con el usuario que publico
+SELECT p.contenido, u.nombre
+FROM publicaciones p
+JOIN usuarios u ON p.id_usuario = u.id_usuario;
+
+-- Buscar los proyectos que usen 'React' en su lista de tecnologías
+SELECT * FROM proyectos
+WHERE tecnologias LIKE '%React%';
+
+-- Listado de  las solicitudes de amistad pendientes del usuario 'Camila Torres'
+SELECT sa.*
+FROM solicitudes_amistad sa
+JOIN usuarios u ON sa.id_emisor = u.id_usuario
+WHERE u.nombre = 'Camila Torres' AND sa.estado = 'pending';
+
+--  Mostrar las publicaciones que tengan imágenes (media_tipo = 'image')
+SELECT * FROM publicaciones
+WHERE media_tipo = 'image';
+
+-- Mostrar el nombre del grupo al que pertenece 'Mateo Ramírez'
+SELECT g.nombre
+FROM grupos g
+WHERE g.id_grupo IN (
+  SELECT mg.id_grupo
+  FROM miembros_grupo mg
+  WHERE mg.id_usuario = (
+    SELECT id_usuario FROM usuarios WHERE nombre = 'Mateo Ramírez'
+  )
+);
+
+-- Obtener las reacciones de la publicación con más comentarios
+SELECT r.*
+FROM reacciones r
+WHERE r.id_publicacion = (
+  SELECT id_publicacion
+  FROM comentarios
+  GROUP BY id_publicacion
+  ORDER BY COUNT(*) DESC
+  LIMIT 1
+);
+
+-- Listado de  los nombres completos de quienes tengan publicaciones con reacciones de tipo '❤️'
+SELECT DISTINCT p.nombre_completo
+FROM publicaciones pub
+JOIN reacciones r ON pub.id_publicacion = r.id_publicacion
+JOIN perfiles p ON pub.id_usuario = p.id_usuario
+WHERE r.emoji = '❤️';
+
+-- Listado de nombres completos de los  usuarios con el nombre del grupo al que pertenecen
+SELECT u.nombre AS usuario, g.nombre AS grupo
+FROM usuarios u
+INNER JOIN miembros_grupo mg ON u.id_usuario = mg.id_usuario
+INNER JOIN grupos g ON mg.id_grupo = g.id_grupo;
+
+-- Mostrar el nombre completo y correo de los usuarios concatenados
+SELECT CONCAT(nombre, ' - ', correo) AS usuario_info
+FROM usuarios;
+ 
+
+
+
